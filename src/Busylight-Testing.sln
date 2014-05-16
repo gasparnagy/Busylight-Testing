@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busylight.Interfaces", "Busylight.Interfaces\Busylight.Interfaces.csproj", "{E220A449-6E70-4A78-B494-6551FFEB36D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busylight.Contrib.Interfaces", "Busylight.Contrib.Interfaces\Busylight.Contrib.Interfaces.csproj", "{E220A449-6E70-4A78-B494-6551FFEB36D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busylight.EmulatorController", "Busylight.EmulatorController\Busylight.EmulatorController.csproj", "{9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busylight.Contrib.Emulator.Client", "Busylight.Contrib.Emulator.Client\Busylight.Contrib.Emulator.Client.csproj", "{9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busylight.Contrib.Emulator", "Busylight.Contrib.Emulator\Busylight.Contrib.Emulator.csproj", "{ED917343-9289-45E7-A408-5B629BD0EE79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED917343-9289-45E7-A408-5B629BD0EE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED917343-9289-45E7-A408-5B629BD0EE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED917343-9289-45E7-A408-5B629BD0EE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED917343-9289-45E7-A408-5B629BD0EE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

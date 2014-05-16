@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Plenom.Components.Busylight.Sdk;
 
-namespace Busylight.Interfaces
+namespace Busylight.Contrib.Interfaces
 {
     public interface IBusylightController
     {
