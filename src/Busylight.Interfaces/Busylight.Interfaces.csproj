@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusylightDeviceController.cs" />
+    <Compile Include="BusylightLyncDeviceController.cs" />
+    <Compile Include="BusylightUcDeviceController.cs" />
+    <Compile Include="IBusylightController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
