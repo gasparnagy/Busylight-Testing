@@ -1,8 +1,28 @@
 ﻿<Window x:Class="Busylight.Contrib.Emulator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+		AllowsTransparency="False"
+		WindowStyle="SingleBorderWindow"
+		ResizeMode="NoResize"
+        Title="Busylight Emulator" Width="285" Height="360">
+	<Window.TaskbarItemInfo>
+		<TaskbarItemInfo x:Name="TaskBarItemInfo" />
+	</Window.TaskbarItemInfo>
+	<StackPanel Orientation="Horizontal">
+		<Grid Width="180">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition Height="30" />
+			</Grid.RowDefinitions>
+			<Rectangle Grid.Row="0" x:Name="Rectangle" Fill="#FFF4F4F5" />
+			<Image Grid.Row="0" Source="busylight.png" Stretch="UniformToFill"/>
+			<Label Grid.Row="1" x:Name="Label" />
+		</Grid>
+		<StackPanel Orientation="Vertical">
+			<Button Content="Light" Width="75" Margin="5" Click="LightTest_Click"/>
+			<Button Content="Alert" Width="75" Margin="5" Click="AlertTest_Click"/>
+			<Button Content="Pulse" Width="75" Margin="5" Click="PulseTest_Click"/>
+			<Button Content="Off" Width="75" Margin="5" Click="OffTest_Click"/>
+		</StackPanel>
+	</StackPanel>
 </Window>
