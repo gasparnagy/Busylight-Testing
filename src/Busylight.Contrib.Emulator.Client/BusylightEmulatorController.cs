@@ -9,7 +9,7 @@ namespace Busylight.Contrib.Emulator.Client
 {
     public class BusylightEmulatorController : IBusylightController
     {
-        const string BASE_ADDRESS = "http://localhost:9000/";
+        const string BASE_ADDRESS = "http://localhost:12916/";
 
         private void Invoke(string action, string parametersFormat, params object[] parametersArgs)
         {
