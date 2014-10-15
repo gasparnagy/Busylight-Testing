@@ -1,7 +1,10 @@
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
+using System.Threading;
 using Busylight.Contrib.Interfaces;
 using Plenom.Components.Busylight.Sdk;
 
@@ -13,6 +16,7 @@ namespace Busylight.Contrib.Emulator.Client
 
         private void Invoke(string action, string parametersFormat, params object[] parametersArgs)
         {
+            EnsureEmulatorRunning();
             try
             {
                 var client = new HttpClient();
@@ -22,6 +26,66 @@ namespace Busylight.Contrib.Emulator.Client
             catch (Exception ex)
             {
                 Debug.WriteLine(ex, "EMULATOR_ERROR");
+            }
+        }
+
+        const string EMULATOR_EXECUTABLE_NAME = "Busylight.Contrib.Emulator.exe";
+
+        private void EnsureEmulatorRunning()
+        {
+            try
+            {
+                if (Process.GetProcessesByName(EMULATOR_EXECUTABLE_NAME).Length == 0)
+                {
+                    var emulatorPath = FindEmulator();
+                    if (emulatorPath != null)
+                    {
+                        Process.Start(emulatorPath);
+                        Thread.Sleep(1000);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex, "EMULATOR_ERROR");
+            }
+        }
+
+        private string FindEmulator()
+        {
+            try
+            {
+                string currentFolderName = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
+                if (currentFolderName == null)
+                    return null;
+                string startFolder = Path.Combine(currentFolderName, "Busylight.Contrib.Emulator");
+                var rootPath = Path.GetPathRoot(startFolder);
+                while (!startFolder.Equals(rootPath, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    var emulatorPath = Path.Combine(startFolder, EMULATOR_EXECUTABLE_NAME);
+                    if (File.Exists(emulatorPath))
+                        return emulatorPath;
+
+                    var packagesPath = Path.Combine(startFolder, "packages");
+                    if (Directory.Exists(packagesPath))
+                    {
+                        var emulatorPackageFolder = Directory.GetDirectories(packagesPath, "Busylight.Contrib.Emulator.*").OrderByDescending(f => f).FirstOrDefault();
+                        if (emulatorPackageFolder != null)
+                        {
+                            emulatorPath = Path.Combine(emulatorPackageFolder, "tools", EMULATOR_EXECUTABLE_NAME);
+                            if (File.Exists(emulatorPath))
+                                return emulatorPath;
+                        }
+                    }
+
+                    startFolder = Path.GetFullPath(Path.Combine(startFolder, ".."));
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex, "EMULATOR_ERROR");
+                return null;
             }
         }
 
