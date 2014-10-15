@@ -18,6 +18,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Busylight.Contrib.Interfaces\Busylight.Contrib.Interfaces.nuspec.props" />
+    <None Include="Busylight.Contrib.Emulator\Busylight.Contrib.Emulator.nuspec" />
+    <Compile Include="Busylight.Contrib.Emulator\Busylight.Contrib.Emulator.nuspec.props" />
     <None Include="Busylight.Contrib.Interfaces\Busylight.Contrib.Interfaces.nuspec" />
     <None Include="packages.config" />
     <None Include="Properties\build.props" />

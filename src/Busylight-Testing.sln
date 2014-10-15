@@ -21,6 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5A37D0
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busylight.Contrib.NuGetPackages", "Busylight.Contrib.NuGetPackages\Busylight.Contrib.NuGetPackages.csproj", "{EC40ACB0-A6B9-4776-9078-B1D72D244787}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2} = {9C66CA3C-2F48-4E48-BFED-95DEDBFC32C2}
+		{ED917343-9289-45E7-A408-5B629BD0EE79} = {ED917343-9289-45E7-A408-5B629BD0EE79}
+		{E220A449-6E70-4A78-B494-6551FFEB36D2} = {E220A449-6E70-4A78-B494-6551FFEB36D2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

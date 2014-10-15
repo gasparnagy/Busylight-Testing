@@ -1,0 +1,11 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <ItemGroup Label="Busylight.Contrib.Emulator">
+    <additionalFiles Include="$(MSBuildThisFileDirectory)\..\..\Busylight.Contrib.Emulator.Client\bin\$(Configuration)\Busylight.Contrib.Emulator.Client.dll">
+      <targetFolder>Busylight.Contrib.Emulator\lib\net40-client</targetFolder>
+    </additionalFiles>
+    <additionalFiles Include="$(MSBuildThisFileDirectory)\..\..\Busylight.Contrib.Emulator\bin\$(Configuration)\*.*"
+                     Exclude="$(MSBuildThisFileDirectory)\..\..\Busylight.Contrib.Emulator\bin\$(Configuration)\*vshost*">
+      <targetFolder>Busylight.Contrib.Emulator\tools</targetFolder>
+    </additionalFiles>
+  </ItemGroup>
+</Project>
