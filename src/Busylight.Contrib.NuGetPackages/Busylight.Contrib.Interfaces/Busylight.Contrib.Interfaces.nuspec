@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Busylight.Contrib.Interfaces</id>
+    <version>1.0.0</version>
+    <title>Busylight Interfaces (contrib)</title>
+    <authors>Gaspar Nagy</authors>
+    <owners>Gaspar Nagy</owners>
+    <summary>Interface for Kuando Busylight SDK controller to allow unit testing.</summary>
+    <description>Interface for Kuando Busylight SDK controller to allow unit testing.</description>
+    <releaseNotes>Initial version.</releaseNotes>
+    <language>en-US</language>
+    <projectUrl>https://github.com/gasparnagy/Busylight-Testing</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/gasparnagy/Busylight-Testing/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright © 2014 Gaspar Nagy</copyright>
+    <tags>Kuando Busylight SDK tdd mocking</tags>
+    <dependencies>
+      <dependency id="Busylight" version="[1.0.1.25]" />
+    </dependencies>
+  </metadata>
+</package>

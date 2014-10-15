@@ -1,0 +1,7 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <ItemGroup Label="Busylight.Contrib.Interfaces">
+    <additionalFiles Include="$(MSBuildThisFileDirectory)\..\..\Busylight.Contrib.Interfaces\bin\$(Configuration)\Busylight.Contrib.Interfaces.dll">
+      <targetFolder>Busylight.Contrib.Interfaces\lib\net40-client</targetFolder>
+    </additionalFiles>
+  </ItemGroup>
+</Project>
