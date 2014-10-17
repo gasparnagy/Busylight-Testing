@@ -29,13 +29,14 @@ namespace Busylight.Contrib.Emulator.Client
             }
         }
 
-        const string EMULATOR_EXECUTABLE_NAME = "Busylight.Contrib.Emulator.exe";
+        const string EMULATOR_PROCESS_NAME = "Busylight.Contrib.Emulator";
+        const string EMULATOR_EXECUTABLE_NAME = EMULATOR_PROCESS_NAME + ".exe";
 
         private void EnsureEmulatorRunning()
         {
             try
             {
-                if (Process.GetProcessesByName(EMULATOR_EXECUTABLE_NAME).Length == 0)
+                if (Process.GetProcessesByName(EMULATOR_PROCESS_NAME).Length == 0)
                 {
                     var emulatorPath = FindEmulator();
                     if (emulatorPath != null)
@@ -58,7 +59,7 @@ namespace Busylight.Contrib.Emulator.Client
                 string currentFolderName = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath);
                 if (currentFolderName == null)
                     return null;
-                string startFolder = Path.Combine(currentFolderName, "Busylight.Contrib.Emulator");
+                string startFolder = Path.Combine(currentFolderName, EMULATOR_PROCESS_NAME);
                 var rootPath = Path.GetPathRoot(startFolder);
                 while (!startFolder.Equals(rootPath, StringComparison.CurrentCultureIgnoreCase))
                 {
@@ -69,7 +70,7 @@ namespace Busylight.Contrib.Emulator.Client
                     var packagesPath = Path.Combine(startFolder, "packages");
                     if (Directory.Exists(packagesPath))
                     {
-                        var emulatorPackageFolder = Directory.GetDirectories(packagesPath, "Busylight.Contrib.Emulator.*").OrderByDescending(f => f).FirstOrDefault();
+                        var emulatorPackageFolder = Directory.GetDirectories(packagesPath, EMULATOR_PROCESS_NAME + ".*").OrderByDescending(f => f).FirstOrDefault();
                         if (emulatorPackageFolder != null)
                         {
                             emulatorPath = Path.Combine(emulatorPackageFolder, "tools", EMULATOR_EXECUTABLE_NAME);
