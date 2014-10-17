@@ -20,8 +20,24 @@ namespace Busylight.Contrib.Emulator
         {
             base.OnStartup(e);
 
-            // Start OWIN host 
-            WebApp.Start<Startup>(url: "http://localhost:12916/");
+            const string EMULATOR_PROCESS_NAME = "Busylight.Contrib.Emulator";
+            if (Process.GetProcessesByName(EMULATOR_PROCESS_NAME).Length > 1)
+            {
+                MessageBox.Show("An instance of the emulator is already running!", "Busylight Emulator", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Shutdown(1);
+                return;
+            }
+
+            try
+            {
+                // Start OWIN host 
+                WebApp.Start<Startup>(url: "http://localhost:12916/");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error starting emulator: " + Environment.NewLine + ex, "Busylight Emulator", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Shutdown(2);
+            }
         }
     }
 }
